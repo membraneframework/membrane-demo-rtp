@@ -1,4 +1,15 @@
 # UdpTest
 
-ffmpeg -f mp3 -i ~/Projects/SWMansion/membrane_test/sample.mp3 -acodec libmp3lame -ab 128k -ac 2 -ar 44100 -f rtp rtp://127.0.0.1:5000
-gst-launch-1.0 audiotestsrc ! lamemp3enc ! rtpmpapay ! udpsink host="127.0.0.1" port=5000
+Tymczasowe źródło danych
+```
+gst-launch-1.0 -v videotestsrc ! capsfilter caps=video/x-raw,format=I420 \
+   ! x264enc \
+   ! rtph264pay \
+   ! udpsink host="127.0.0.1" port=5000 
+```
+
+App launch
+```
+iex -S mix
+> UdpTest.iex_test
+```
