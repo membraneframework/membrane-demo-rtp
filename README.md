@@ -6,6 +6,24 @@ This repository contains proof of concept demo of Membrane Framework RTP H264 Vi
 
 - git lfs
 - libavcodec-dev
+   For Mac OS users:
+
+   ```bash
+   brew install ffmpeg
+   ```
+
+   For Ubuntu users:
+
+   ```bash
+   apt-get install libavcodec-dev
+   ```
+
+   For Manjaro users:
+
+   ```bash
+   yaourt ffmpeg
+   ```
+
 - SDL 1.2, it is probably already installed on your machine.
 
 ### Using `.pcap` file
