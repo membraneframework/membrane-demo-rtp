@@ -35,7 +35,10 @@ defmodule UdpTest.MixProject do
        github: "membraneframework/membrane-element-rtp-h264",
        branch: "depayloading-fu-a-and-stap-a"},
       {:membrane_loggers, git: "git@github.com:membraneframework/membrane-loggers.git"},
-      {:membrane_element_sdl, github: "membraneframework/membrane-element-sdl", branch: "develop"}
+      {:membrane_element_sdl,
+       github: "membraneframework/membrane-element-sdl", branch: "develop"},
+      {:membrane_element_pcap,
+       github: "membraneframework/membrane-element-pcap", branch: "basic-source"}
     ]
   end
 end
