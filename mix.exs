@@ -37,8 +37,7 @@ defmodule UdpTest.MixProject do
       {:membrane_loggers, git: "git@github.com:membraneframework/membrane-loggers.git"},
       {:membrane_element_sdl,
        github: "membraneframework/membrane-element-sdl", branch: "develop"},
-      {:membrane_element_pcap,
-       github: "membraneframework/membrane-element-pcap", branch: "basic-source"}
+      {:membrane_element_pcap, github: "membraneframework/membrane-element-pcap"}
     ]
   end
 end
