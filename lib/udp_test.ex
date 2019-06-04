@@ -35,7 +35,7 @@ defmodule UdpTest do
     # {:child, :output_pad} => {:another_child, :input_pad}
 
     links = %{
-      {:udp, :output} => {:rtp, :input, pull_buffer: [toilet: %{fail: 100_000, warn: 1_000}]},
+      {:udp, :output} => {:rtp, :input, buffer: [warn_size: 264_600, fail_size: 529_200]},
       {:rtp, :output} => {:jitter_buffer, :input},
       {:jitter_buffer, :output} => {:depayloader, :input},
       {:depayloader, :output} => {:video_parser, :input},
