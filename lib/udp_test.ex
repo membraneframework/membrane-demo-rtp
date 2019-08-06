@@ -25,7 +25,7 @@ defmodule UdpTest do
       rtp: Membrane.Element.RTP.Parser,
       jitter_buffer: %Membrane.Element.RTP.JitterBuffer{slot_count: 10},
       depayloader: Membrane.Element.RTP.H264.Depayloader,
-      video_parser: %Membrane.Element.FFmpeg.H264.Parser{framerate: {30,1}},
+      video_parser: %Membrane.Element.FFmpeg.H264.Parser{framerate: {30, 1}},
       dekoder: Membrane.Element.FFmpeg.H264.Decoder,
       player: Membrane.Element.Sdl.Sink
     ]

@@ -1,5 +1,7 @@
 # Video RTP Demo
 
+[![CircleCI](https://circleci.com/gh/membraneframework/membrane-demo-rtp.svg?style=svg)](https://circleci.com/gh/membraneframework/membrane-demo-rtp)
+
 This repository contains proof of concept demo of Membrane Framework RTP H264 Video support.
 
 ### Prerequisites
