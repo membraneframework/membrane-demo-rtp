@@ -23,14 +23,14 @@ defmodule UdpTest.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:membrane_core, "~> 0.3"},
-      {:membrane_element_udp, "~> 0.2.0"},
-      {:membrane_element_rtp, "~> 0.2.0"},
-      {:membrane_element_ffmpeg_h264, "~> 0.1.0"},
-      {:membrane_element_file, "~> 0.2.0"},
-      {:membrane_element_rtp_jitter_buffer, "~> 0.1.0"},
-      {:membrane_element_rtp_h264, "~> 0.1.0"},
-      {:membrane_loggers, "~> 0.2.0"},
+      {:membrane_core, "~> 0.5"},
+      {:membrane_element_udp, "~> 0.3"},
+      {:membrane_element_rtp, "~> 0.3"},
+      {:membrane_element_ffmpeg_h264, "~> 0.3"},
+      {:membrane_element_file, "~> 0.3"},
+      {:membrane_element_rtp_jitter_buffer, "~> 0.2"},
+      {:membrane_element_rtp_h264, "~> 0.2"},
+      {:membrane_loggers, "~> 0.3"},
       {:membrane_element_sdl, github: "membraneframework/membrane-element-sdl"},
       {:membrane_element_pcap, github: "membraneframework/membrane-element-pcap"}
     ]
