@@ -32,7 +32,9 @@ defmodule UdpTest.MixProject do
       {:membrane_element_rtp_h264, "~> 0.2"},
       {:membrane_loggers, "~> 0.3"},
       {:membrane_element_sdl, github: "membraneframework/membrane-element-sdl"},
-      {:membrane_element_pcap, github: "membraneframework/membrane-element-pcap"}
+      {:membrane_element_pcap, github: "membraneframework/membrane-element-pcap"},
+      {:bundlex, github: "membraneframework/bundlex", override: true},
+      {:shmex, github: "membraneframework/shmex", override: true}
     ]
   end
 end
