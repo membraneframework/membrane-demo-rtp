@@ -19,6 +19,9 @@ defmodule PcapTest do
       player: Membrane.Element.SDL.Player
     ]
 
+    # Map that describes how we want data to flow
+    # https://membraneframework.org/guide/v0.5/pipeline.html#content
+
     links = [
       link(:pcap)
       |> to(:rtp)

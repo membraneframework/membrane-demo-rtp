@@ -27,29 +27,30 @@ defmodule UdpTest do
       depayloader: Membrane.Element.RTP.H264.Depayloader,
       video_parser: %Membrane.Element.FFmpeg.H264.Parser{framerate: {30, 1}},
       dekoder: Membrane.Element.FFmpeg.H264.Decoder,
-      player: Membrane.Element.Sdl.Sink
+      player: Membrane.Element.SDL.Player
     ]
 
     # Map that describes how we want data to flow
-    # It is formated as such
-    # {:child, :output_pad} => {:another_child, :input_pad}
+    # https://membraneframework.org/guide/v0.5/pipeline.html#content
 
-    links = %{
-      {:udp, :output} => {:rtp, :input, buffer: [warn_size: 264_600, fail_size: 529_200]},
-      {:rtp, :output} => {:jitter_buffer, :input},
-      {:jitter_buffer, :output} => {:depayloader, :input},
-      {:depayloader, :output} => {:video_parser, :input},
-      {:video_parser, :output} => {:dekoder, :input},
-      {:dekoder, :output} => {:player, :input}
-    }
+    links = [
+      link(:udp)
+      |> via_in(:input, buffer: [warn_size: 264_600, fail_size: 529_200])
+      |> to(:rtp)
+      |> to(:jitter_buffer)
+      |> to(:depayloader)
+      |> to(:video_parser)
+      |> to(:dekoder)
+      |> to(:player)
+    ]
 
     spec =
-      %Membrane.Pipeline.Spec{
+      %ParentSpec{
         children: children,
         links: links
       }
       |> IO.inspect()
 
-    {{:ok, spec}, %{}}
+    {{:ok, spec: spec}, %{}}
   end
 end
