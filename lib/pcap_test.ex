@@ -16,25 +16,29 @@ defmodule PcapTest do
       depayloader: Membrane.Element.RTP.H264.Depayloader,
       video_parser: %Membrane.Element.FFmpeg.H264.Parser{framerate: {30, 1}},
       dekoder: Membrane.Element.FFmpeg.H264.Decoder,
-      player: Membrane.Element.Sdl.Sink
+      player: Membrane.Element.SDL.Player
     ]
 
-    links = %{
-      {:pcap, :output} => {:rtp, :input},
-      {:rtp, :output} => {:jitter_buffer, :input},
-      {:jitter_buffer, :output} => {:depayloader, :input},
-      {:depayloader, :output} => {:video_parser, :input},
-      {:video_parser, :output} => {:dekoder, :input},
-      {:dekoder, :output} => {:player, :input}
-    }
+    # Map that describes how we want data to flow
+    # https://membraneframework.org/guide/v0.5/pipeline.html#content
+
+    links = [
+      link(:pcap)
+      |> to(:rtp)
+      |> to(:jitter_buffer)
+      |> to(:depayloader)
+      |> to(:video_parser)
+      |> to(:dekoder)
+      |> to(:player)
+    ]
 
     spec =
-      %Membrane.Pipeline.Spec{
+      %ParentSpec{
         children: children,
         links: links
       }
       |> IO.inspect()
 
-    {{:ok, spec}, %{}}
+    {{:ok, spec: spec}, %{}}
   end
 end
